@@ -2,20 +2,24 @@ import { Alert, Image, ImageBackground, Pressable, ScrollView, Text, TextInput, 
 import { styles } from "../styles/styles";
 import ExercicioNota from "../components/ExercicioNota";
 import { useState } from "react";
+import { LoginProps } from "../navigation/HomeNavigator";
 
 
-const Exemplo8 = () => {
+const TelaLogin = (props: LoginProps) => {
     //variável
     let url = 'https://reactnative.dev/docs/assets/p_cat2.png';
     //O retorno da função é o que será construído em tela
 
     // States para mostra nome e email
+    
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
 
     function exibirMensagem() {
         Alert.alert('Dados', 'Email: ' + email + '\nSenha: ' + senha);
+        props.navigation.navigate('TelaPrincipal');
     }
+
 
     return (
 
@@ -67,7 +71,8 @@ const Exemplo8 = () => {
                             <Text style={styles.titulo3}> Entrar </Text>
                         </Pressable>
 
-                        <Pressable style={(state) => [styles.botao, state.pressed ? { opacity: 0.5 } : null]}>
+                        <Pressable style={(state) => [styles.botao, state.pressed ? { opacity: 0.5 } : null]}
+                        onPress={() => {props.navigation.navigate('TelaCadastro'); }}>
                             <Text style={styles.titulo3}> Cadastrar </Text>
                         </Pressable>
 
@@ -95,5 +100,5 @@ const Exemplo8 = () => {
     );
 };
 
-export default Exemplo8;
+export default TelaLogin;
 
