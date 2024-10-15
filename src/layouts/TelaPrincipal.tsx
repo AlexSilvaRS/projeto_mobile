@@ -7,19 +7,21 @@ import Exemplo1 from '../components/Exemplo1';
 import ExercicioNota from '../components/ExercicioNota';
 import ExemploEvento from '../components/ExemploEvento';
 import ExemploState from '../components/ExemploState';
+import ExemploConstrucaoCondicao from '../components/ExemploConstrucaoCondicao';
 
 const TelaPrincipal = (props: PrincipalProps) => {
     return (
         <View
             style={styles.tela}>
-            <Pressable
+            {/* <Pressable
                 style={{ backgroundColor: 'green' }}
                 onPress={() => { props.navigation.goBack() }}>
                 <Text style={{ fontSize: 40 }}>Voltar</Text>
             </Pressable>
 
             <ExemploEvento />
-            <ExemploState />
+            <ExemploState /> */}
+            <ExemploConstrucaoCondicao/>
 
         </View>
     );

@@ -7,10 +7,20 @@ const TelaCadastro = (props: CadastroProps) => {
 
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
+    const [confirmarSenha, setConfirmarsenha] = useState('');
 
     function exibirCadastro() {
-        Alert.alert('Dados', 'Email: ' + email + '\nSenha: ' + senha);
-    }
+        if(senha == confirmarSenha){
+            Alert.alert('Dados',
+                 'Email: ' + email + 
+                 '\nSenha: ' + senha + 
+                 '\nConfirmar Senha:' + confirmarSenha
+                )
+                 props.navigation.navigate('TelaLogin');}else{
+                    Alert.alert('Senha Diferente');
+                 }  
+        }
+    
 
     return (
 
@@ -45,6 +55,19 @@ const TelaCadastro = (props: CadastroProps) => {
                 <TextInput
                     style={[styles.caixa_texto2, styles.largura_70]}
                     defaultValue="Digite aqui a Senha"
+
+                    onChangeText={(text) => {
+                        //Exibe o Nome no terminal
+                        console.log(text);
+                        setSenha(text);
+                    }
+                    }
+                />
+
+                <Text style={styles.tituloPreto2}>Confirmar Senha</Text>
+                <TextInput
+                    style={[styles.caixa_texto2, styles.largura_70]}
+                    defaultValue="Confirmar Senha"
 
                     onChangeText={(text) => {
                         //Exibe o Nome no terminal
