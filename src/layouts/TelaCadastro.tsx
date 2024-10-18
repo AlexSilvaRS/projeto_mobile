@@ -2,25 +2,72 @@ import { useState } from "react";
 import { Alert, Image, Pressable, ScrollView, Text, TextInput, View } from "react-native";
 import { CadastroProps } from "../navigation/HomeNavigator";
 import { styles } from "../styles/styles";
-
+import auth from "@react-native-firebase/auth"
 const TelaCadastro = (props: CadastroProps) => {
 
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [confirmarSenha, setConfirmarsenha] = useState('');
 
-    function exibirCadastro() {
-        if(senha == confirmarSenha){
-            Alert.alert('Dados',
-                 'Email: ' + email + 
-                 '\nSenha: ' + senha + 
-                 '\nConfirmar Senha:' + confirmarSenha
-                )
-                 props.navigation.navigate('TelaLogin');}else{
-                    Alert.alert('Senha Diferente');
-                 }  
+    function cadastrar() {
+        if (verificarCampos()) {
+            auth()
+            .createUserWithEmailAndPassword(email, senha)
+            .then(() => {
+                Alert.alert( " Conta", " Cadastrada com sucesso")
+                props.navigation.goBack();
+            })
+            .catch((Error) => {tratarErros(String(Error))});
         }
-    
+
+    }
+
+    function verificarCampos(): boolean {
+        if (email == '') {
+            Alert.alert(" Email em branco ", " Digite um email ")
+            return false;
+        }
+        if (senha == '') {
+            Alert.alert(" Senha em branco", " Digite uma senha de pelo menos 6 digitos")
+            return false;
+        }
+        if ( confirmarSenha == '') {
+            Alert.alert(" Confirmação de senha em branco", " Digite a confirmção de senha corretamente")
+            return false;
+        }
+        if (senha != confirmarSenha) {
+            Alert.alert( " As senhas não são iguais"," Digite a confirmação de senha corretamente")
+        }
+        return true;
+    }
+
+    function tratarErros(erro: string) {
+        console.log(erro);
+        if (erro.includes("[auth/invalid-email]")) {
+            Alert.alert(" Email inválido", " Digite um email válido")
+        }else if (erro.includes("[auth/weak-password")) {
+            Alert.alert(" Senha Fraca", " A senha digitada é fraca. A senha deve conter pelo menos 6 digitos. ")
+        }else if (erro.includes("[auth/email-already-in-use]")) {
+            Alert.alert(" Email em uso"," O email inserido ja foi cadastrado ja foi cadastrado em outra  conta")
+        }else{
+            Alert.alert(" Erro", erro)
+        }
+        
+    }
+
+    function exibirCadastro() {
+        if (senha == confirmarSenha) {
+            Alert.alert('Dados',
+                'Email: ' + email +
+                '\nSenha: ' + senha +
+                '\nConfirmar Senha:' + confirmarSenha
+            )
+            props.navigation.navigate('TelaLogin');
+        } else {
+            Alert.alert('Senha Diferente');
+        }
+    }
+
 
     return (
 
@@ -72,20 +119,17 @@ const TelaCadastro = (props: CadastroProps) => {
                     onChangeText={(text) => {
                         //Exibe o Nome no terminal
                         console.log(text);
-                        setSenha(text);
+                        setConfirmarsenha(text);
                     }
                     }
                 />
 
                 <View style={styles.botoesContainer}>
-                    <Pressable style={(state) => [styles.botao, state.pressed ? { opacity: 0.5 } : null]}
-                        onPress={() => { exibirCadastro() }}>
-                        <Text style={styles.tituloPreto3}> Cadastrar </Text>
-                    </Pressable>
+                   
 
 
                     <Pressable style={(state) => [styles.botao, state.pressed ? { opacity: 0.5 } : null]}
-                        onPress={() => { exibirCadastro() }}>
+                        onPress={() => { cadastrar() }}>
                         <Text style={styles.tituloPreto3}> Salvar </Text>
                     </Pressable>
 

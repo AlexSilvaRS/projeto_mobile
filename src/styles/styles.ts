@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         fontSize: 30,
         fontWeight: 'bold',
         alignItems: 'center',
-        color: 'white'
+        color: 'white',
     },
     titulo3: {
         fontSize: 10,
@@ -39,11 +39,11 @@ const styles = StyleSheet.create({
     },
 
     caixa_texto: {
-        color: 'black',
+        color: 'white',
         fontSize: 20,
         borderWidth: 1,
         borderRadius: 4,
-        borderColor: 'black',
+        borderColor: 'white',
         alignItems: 'center',
         margin: 3
     },
