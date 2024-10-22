@@ -1,5 +1,5 @@
 import { FlatList, Text, StyleSheet } from "react-native"
-import { Produtos } from "./type/produto"
+import { Produtos } from "./type/produtos"
 
 
 type ListaProdutosProps = {

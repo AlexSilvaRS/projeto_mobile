@@ -19,7 +19,7 @@ const TelaSecundaria = (props: SecundariaProps) => {
 
             <Pressable style={styles.button} onPress={() => 
                { props.navigation.navigate('Apresentacao', { valor: 3 })}}>         
-                <Text style={styles.buttonText}>ExemploState</Text>
+                <Text style={styles.buttonText}>Exemplo State</Text>
             </Pressable>
 
             <Pressable style={styles.button} onPress={() => 
@@ -30,6 +30,21 @@ const TelaSecundaria = (props: SecundariaProps) => {
             <Pressable style={styles.button} onPress={() => 
                { props.navigation.navigate('Apresentacao', { valor: 5 })}}>         
                 <Text style={styles.buttonText}>Exemplo Construção Condicional</Text>
+            </Pressable>
+
+            <Pressable style={styles.button} onPress={() => 
+               { props.navigation.navigate('Apresentacao', { valor: 6 })}}>         
+                <Text style={styles.buttonText}>Exemplo Tela Cadastro Paciente</Text>
+            </Pressable>
+
+            <Pressable style={styles.button} onPress={() => 
+               { props.navigation.navigate('Apresentacao', { valor: 7 })}}>         
+                <Text style={styles.buttonText}>Tela Interativa</Text>
+            </Pressable>
+
+            <Pressable style={styles.button} onPress={() => 
+               { props.navigation.navigate('Apresentacao', { valor: 8 })}}>         
+                <Text style={styles.buttonText}>Exemplo Tela Cadastro Produtos</Text>
             </Pressable>
 
             <Pressable

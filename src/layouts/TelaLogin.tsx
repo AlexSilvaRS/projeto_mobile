@@ -15,7 +15,7 @@ const TelaLogin = (props: LoginProps) => {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
 
-    
+
 
     function logar() {
         if (verificarCampos()) {
@@ -93,28 +93,23 @@ const TelaLogin = (props: LoginProps) => {
                     <Text style={styles.titulo2}>Digite o Login</Text>
                     <TextInput
                         style={[styles.caixa_texto, styles.largura_70]}
-                        defaultValue="Digite aqui o Login"
+                        onChangeText={(text) => { setEmail(text) }}
+                        placeholder="Digite seu login"
+                        placeholderTextColor="#888"
 
-                        onChangeText={(text) => {
-                            //Exibe o Nome no terminal
-                            console.log(text);
-                            setEmail(text);
-                        }
-                        }
+
+
+
                     />
 
                     <Text style={styles.titulo2}>Digite a Senha</Text>
                     <TextInput
                         style={[styles.caixa_texto, styles.largura_70]}
-                        defaultValue="Digite aqui a Senha"
+                        onChangeText={(text) => { setSenha(text) }}
+                        placeholder="Digite seu login"
+                        placeholderTextColor="#888"
 
-                        onChangeText={(text) => {
-                            //Exibe o Nome no terminal
-                            console.log(text);
-                            setSenha(text);
-                        }
-                        }
-                    />
+                    />             
 
                     <View style={styles.botoesContainer}>
                         <Pressable style={(state) => [styles.botao, state.pressed ? { opacity: 0.5 } : null]}
@@ -129,14 +124,12 @@ const TelaLogin = (props: LoginProps) => {
                         </Pressable>
 
                         <Pressable style={(state) => [styles.botao, state.pressed ? { opacity: 0.5 } : null]}
-                            onPress={() => {redefinirSenha()}}>
+                            onPress={() => { redefinirSenha() }}>
                             <Text style={styles.titulo3}>Esqueceu a Senha?</Text>
 
                         </Pressable>
 
                     </View>
-
-
 
                 </View>
 

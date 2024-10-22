@@ -5,6 +5,10 @@ import TelaCadastro from "../layouts/TelaCadastro";
 import TelaSecundaria from "../layouts/TelaSecundaria";
 import ExemploCalculo from "../components/ExemploCalculo";
 import Apresentacao from "../layouts/Apresentacao";
+import TelaCadPaciente from "../layouts/TelaCadPaciente";
+import TelaInterativa from "../layouts/TelaInterativa";
+import TelaCadastroProduto from "../layouts/TelaCadProdutos";
+import TelaCadProdutos from "../layouts/TelaCadProdutos";
 
 
 type RootStackParamList = {
@@ -14,6 +18,9 @@ type RootStackParamList = {
     TelaSecundaria: undefined;
     ExemploCalculo: undefined;
     Apresentacao: { valor: number };
+    TelaCadPaciente: undefined;
+    TelaInterativa: undefined;
+    TelaCadProdutos: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -27,8 +34,10 @@ const HomeNavigator = () => {
             <Stack.Screen name="TelaLogin" component={TelaLogin} />
             <Stack.Screen name="TelaCadastro" component={TelaCadastro} />
             <Stack.Screen name="TelaSecundaria" component={TelaSecundaria} />
-
             <Stack.Screen name="Apresentacao" component={Apresentacao} />
+            <Stack.Screen name="TelaCadPaciente" component={TelaCadPaciente} />
+            <Stack.Screen name="TelaInterativa" component={TelaInterativa} />
+            <Stack.Screen name="TelaCadProdutos" component={TelaCadProdutos} />
 
         </Stack.Navigator>
 
@@ -53,6 +62,17 @@ type CalculoProps = NativeStackScreenProps<RootStackParamList,
 type ApresentacaoProps = NativeStackScreenProps<RootStackParamList,
     'Apresentacao'>;
 
+type CadPacienteProps = NativeStackScreenProps<RootStackParamList,
+    'TelaCadPaciente'>;
+
+type InterativaProps = NativeStackScreenProps<RootStackParamList,
+    'TelaInterativa'>;
+
+type ProdutoProps = NativeStackScreenProps<RootStackParamList,
+    'TelaCadProdutos'>;
+
+
+
 
 export default HomeNavigator;
 export type {
@@ -62,5 +82,7 @@ export type {
     SecundariaProps,
     CalculoProps,
     ApresentacaoProps,
-
+    CadPacienteProps,
+    InterativaProps,
+    ProdutoProps,
 };
