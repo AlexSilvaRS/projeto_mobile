@@ -2,7 +2,12 @@ import { useState } from "react";
 import { Alert, Pressable, Text, TextInput, View } from "react-native";
 import { styles } from "../styles/styles";
 
-const ExemploState = () => {
+
+type StateProps= {
+    onClick: (texto: string) => void;
+}
+
+const ExemploState = (props: StateProps) => {
     // Funciona para guardar o texto do campo
     const [frase, setFrase] = useState('bom dia');
     const [nome, setNome] = useState('');
@@ -32,8 +37,9 @@ const ExemploState = () => {
 
             <Pressable
                 style={(state) => [styles.botao, state.pressed && styles.click]}
+                onPressIn={() => { props.onClick(frase) }}
                 // Evento do click do botão
-                onPress={() => { exibirMensagem() }}>
+                >
                 <Text style={styles.texto_botao}>Entrar</Text>
             </Pressable>
         </View>

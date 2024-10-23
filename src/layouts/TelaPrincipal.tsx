@@ -28,6 +28,27 @@ const TelaPrincipal = (props: PrincipalProps) => {
             >
                 <Text style={styles.buttonText}>Voltar</Text>
             </Pressable>
+
+            <Pressable 
+                style={styles.button} 
+                onPress={() => props.navigation.navigate('TelaCadProdutos')}
+            >
+                <Text style={styles.buttonText}>Ir para a Tela Cadastro Produtos</Text>
+            </Pressable>
+
+            <Pressable 
+                style={styles.button} 
+                onPress={() => props.navigation.navigate('TelaConsProduto')}
+            >
+                <Text style={styles.buttonText}>Ir para a Tela Consultar Produtos</Text>
+            </Pressable>
+
+            <Pressable 
+                style={styles.button} 
+                onPress={() => props.navigation.navigate('TelaDeAlteracao')}
+            >
+                <Text style={styles.buttonText}>Ir para a Tela de Alteracao</Text>
+            </Pressable>
         </View>
     );
 }

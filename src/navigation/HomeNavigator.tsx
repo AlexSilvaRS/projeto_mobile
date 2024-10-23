@@ -9,6 +9,8 @@ import TelaCadPaciente from "../layouts/TelaCadPaciente";
 import TelaInterativa from "../layouts/TelaInterativa";
 import TelaCadastroProduto from "../layouts/TelaCadProdutos";
 import TelaCadProdutos from "../layouts/TelaCadProdutos";
+import TelaConsProduto from "../layouts/TelaConsProduto";
+import TelaDeAlteracao from "../layouts/TelaDeAlteracao";
 
 
 type RootStackParamList = {
@@ -21,6 +23,8 @@ type RootStackParamList = {
     TelaCadPaciente: undefined;
     TelaInterativa: undefined;
     TelaCadProdutos: undefined;
+    TelaConsProduto: undefined;
+    TelaDeAlteracao: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -38,6 +42,8 @@ const HomeNavigator = () => {
             <Stack.Screen name="TelaCadPaciente" component={TelaCadPaciente} />
             <Stack.Screen name="TelaInterativa" component={TelaInterativa} />
             <Stack.Screen name="TelaCadProdutos" component={TelaCadProdutos} />
+            <Stack.Screen name="TelaConsProduto" component={TelaConsProduto} />
+            <Stack.Screen name="TelaDeAlteracao" component={TelaDeAlteracao} />
 
         </Stack.Navigator>
 
@@ -71,6 +77,15 @@ type InterativaProps = NativeStackScreenProps<RootStackParamList,
 type ProdutoProps = NativeStackScreenProps<RootStackParamList,
     'TelaCadProdutos'>;
 
+type ConsProdutoProps = NativeStackScreenProps<RootStackParamList,
+    'TelaConsProduto'>;
+
+type AlteracaoProps = NativeStackScreenProps<RootStackParamList,
+    'TelaDeAlteracao'>;
+
+
+
+
 
 
 
@@ -85,4 +100,6 @@ export type {
     CadPacienteProps,
     InterativaProps,
     ProdutoProps,
+    ConsProdutoProps,
+    AlteracaoProps,
 };

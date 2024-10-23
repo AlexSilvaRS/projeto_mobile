@@ -13,6 +13,7 @@ import ExemploStylesView from '../components/ExemploStyleView';
 import TelaCadPaciente from './TelaCadPaciente';
 import TelaInterativa from './TelaInterativa';
 import TelaCadProdutos from './TelaCadProdutos';
+import TelaConsProduto from './TelaConsProduto';
 
 const Apresentacao = (props: ApresentacaoProps) => {
     const showAlert = () => {
@@ -33,7 +34,7 @@ const Apresentacao = (props: ApresentacaoProps) => {
 
             {
                 props.route.params.valor == 3 &&
-                <ExemploState />
+                <ExemploState onClick={(frase:string)=>{}}/>
             }
 
             {
@@ -56,10 +57,8 @@ const Apresentacao = (props: ApresentacaoProps) => {
                 <TelaInterativa />
             }
 
-{
-                props.route.params.valor == 8 &&
-                <TelaCadProdutos />
-            }
+
+           
 
         </View>
     );

@@ -13,11 +13,11 @@ const TelaCadProdutos = (props: ProdutoProps) => {
 
     function cadastrar() {
         if (verificarCampos()) {
-            let produto: Produtos = {
+            let produto = {
                 nome,
                 codigo,
                 preco: Number.parseFloat(preco),
-            };
+            } as Produtos;
 
             firestore()
                 .collection('produtos')
@@ -57,21 +57,21 @@ const TelaCadProdutos = (props: ProdutoProps) => {
         <View>
             <Text>Nome</Text>
             <TextInput
-                style={styles.caixa_texto}
+                style={styles.caixa_texto2}
                 onChangeText={setNome}
             />
 
             <Text>Código de Barras</Text>
             <TextInput
                 maxLength={14}
-                style={styles.caixa_texto}
+                style={styles.caixa_texto2}
                 onChangeText={setCodigo}
             />
 
             <Text>Preço</Text>
             <TextInput
                 maxLength={7}
-                style={[styles.caixa_texto, { width: "40%" }]}
+                style={[styles.caixa_texto2, { width: "40%" }]}
                 onChangeText={setPreco}
             />
 
@@ -79,7 +79,7 @@ const TelaCadProdutos = (props: ProdutoProps) => {
                 style={styles.botao}
                 onPress={cadastrar}
             >
-                <Text style={styles.botao}>Cadastrar</Text> {/* Usando Text corretamente */}
+                <Text style={styles.botao}>Cadastrar</Text> 
             </Pressable>
         </View>
     );

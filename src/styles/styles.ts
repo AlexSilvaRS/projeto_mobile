@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        // Caso queira adicionar espaçamento entre os botões
+        
         padding: 20,
     },
 
@@ -118,7 +118,56 @@ const styles = StyleSheet.create({
         margin: 3
     },
 
+    centralizar: {
+        alignItems: 'center',
+    },
+    card: {
+        borderWidth: 2,
+        borderColor: 'black',
+        borderRadius: 15,
+        marginVertical: 5,
+        marginHorizontal: 5,
+        backgroundColor: 'white',
+        padding: 15, // Espaçamento interno
+        shadowColor: "#000", // Sombra para Android
+        shadowOffset: { width: 0, height: 2 }, // Sombra para iOS
+        shadowOpacity: 0.1, // Sombra para iOS
+        shadowRadius: 6, // Sombra para iOS
+        elevation: 5, // Sombra para Android
+    },
+    botao_deletar: {
+        backgroundColor: 'red',
+        padding: 5,
+        borderRadius: 5,
+        alignSelf: 'flex-end',
+        marginTop: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    texto_botao_card: {
+        color: 'white',
+        fontSize: 16,
+        fontWeight: 'bold',
+        textAlign: 'center',
+    },
+    card_texto: {
+        fontSize: 20,
+        color: 'black',
+        marginVertical: 5,
+    },
+    card_titulo: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        color: 'black',
+        marginBottom: 10,
+    },
+    card_codigo: {
+        fontSize: 40,
+        color: 'black',
+        marginVertical: 10,
+    },
 });
+
 
 
 
