@@ -58,7 +58,7 @@ const TelaDeAlteracao = (props: AlteracaoProps) => {
   useEffect(() => {
     carregar();
   }, []);
-
+ 
   function alterar() {
     if (verificarCampos()) {
       let produto = {

@@ -64,8 +64,7 @@ const styles = StyleSheet.create({
     botoesContainer: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center',
-        
+        alignItems: 'center', 
         padding: 20,
     },
 
@@ -165,6 +164,36 @@ const styles = StyleSheet.create({
         fontSize: 40,
         color: 'black',
         marginVertical: 10,
+    },
+
+    // Aqui começa os styles de Loginfarmacia
+
+    titulo4: {
+        fontSize: 40,
+        fontWeight: 'bold',
+        color: 'black',
+        textAlign: 'center'
+    },
+    titulo5: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        alignItems: 'center',
+        color: 'black',
+    },
+    titulo6: {
+        fontSize: 10,
+        fontWeight: 'bold',
+        color: 'white'
+    },
+
+    caixa_texto4: {
+        color: 'black',
+        fontSize: 20,
+        borderWidth: 1,
+        borderRadius: 4,
+        borderColor: 'black',
+        alignItems: 'center',
+        margin: 3
     },
 });
 

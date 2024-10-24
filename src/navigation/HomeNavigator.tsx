@@ -11,6 +11,8 @@ import TelaCadastroProduto from "../layouts/TelaCadProdutos";
 import TelaCadProdutos from "../layouts/TelaCadProdutos";
 import TelaConsProduto from "../layouts/TelaConsProduto";
 import TelaDeAlteracao from "../layouts/TelaDeAlteracao";
+import LoginFarmacia from "../layouts/LoginFarmacia";
+import CadastroFarmacia from "../layouts/CadastroFarmacia";
 
 
 type RootStackParamList = {
@@ -25,6 +27,8 @@ type RootStackParamList = {
     TelaCadProdutos: undefined;
     TelaConsProduto: undefined;
     TelaDeAlteracao: undefined;
+    CadastroFarmacia: undefined;
+    LoginFarmacia: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -32,7 +36,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 const HomeNavigator = () => {
     return (
         <Stack.Navigator
-            initialRouteName="TelaLogin"
+            initialRouteName="LoginFarmacia"
             screenOptions={{ headerShown: false }}>
             <Stack.Screen name="TelaPrincipal" component={TelaPrincipal} />
             <Stack.Screen name="TelaLogin" component={TelaLogin} />
@@ -44,6 +48,8 @@ const HomeNavigator = () => {
             <Stack.Screen name="TelaCadProdutos" component={TelaCadProdutos} />
             <Stack.Screen name="TelaConsProduto" component={TelaConsProduto} />
             <Stack.Screen name="TelaDeAlteracao" component={TelaDeAlteracao} />
+            <Stack.Screen name="CadastroFarmacia" component={CadastroFarmacia} />
+            <Stack.Screen name="LoginFarmacia" component={LoginFarmacia} />
 
         </Stack.Navigator>
 
@@ -82,6 +88,11 @@ type ConsProdutoProps = NativeStackScreenProps<RootStackParamList,
 
 type AlteracaoProps = NativeStackScreenProps<RootStackParamList,
     'TelaDeAlteracao'>;
+type CadFarmaciaProps = NativeStackScreenProps<RootStackParamList,
+    'CadastroFarmacia'>;
+
+    type LoginFarmProps = NativeStackScreenProps<RootStackParamList,
+    'LoginFarmacia'>;
 
 
 
@@ -102,4 +113,6 @@ export type {
     ProdutoProps,
     ConsProdutoProps,
     AlteracaoProps,
+    CadFarmaciaProps,
+    LoginFarmProps,
 };
