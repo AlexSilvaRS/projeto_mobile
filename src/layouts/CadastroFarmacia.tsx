@@ -6,8 +6,7 @@ import { Alert, Pressable, StyleSheet, Text, TextInput, View } from "react-nativ
 const CadastroFarmacia = (props: CadFarmaciaProps) => {
     const [Email, setEmail] = useState('');
     const [Senha, setSenha] = useState('');
-    const [Cpf, setCpf] = useState('');
-
+    
     function Cadastrar() {
         auth()
             .createUserWithEmailAndPassword(Email, Senha)
@@ -20,7 +19,7 @@ const CadastroFarmacia = (props: CadFarmaciaProps) => {
     function tratarErros(erro: string) {
         console.log(erro);
         if (erro.includes("[auth/invalid-email]")) {
-            Alert.alert("Email inválido", "Digite um Nome válido")
+            Alert.alert("Email inválido", "Digite um Email válido")
         } else if (erro.includes("[auth/invalid-password]")) {
             Alert.alert("Senha fraca ", "Digite uma senha mais forte ")
         } else if (erro.includes("[auth/email-already-in-use]")) {

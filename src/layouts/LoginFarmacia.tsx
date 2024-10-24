@@ -14,15 +14,13 @@ const LoginFarmacia = (props: LoginFarmProps) => {
 
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
-
-
-
+    
     function logar() {
         if (verificarCampos()) {
             auth()
                 .signInWithEmailAndPassword(email, senha)
                 .then(() => {
-                    props.navigation.navigate('TelaPrincipal')
+                    props.navigation.navigate('TelaCadProdutos')
                 })
                 .catch((erro) => tratarErros(String(erro)))
 
@@ -119,7 +117,7 @@ const LoginFarmacia = (props: LoginFarmProps) => {
                         </Pressable>
 
                         <Pressable style={(state) => [styles.botao, state.pressed ? { opacity: 0.5 } : null]}
-                            onPress={() => { props.navigation.navigate('TelaCadastro'); }}>
+                            onPress={() => { props.navigation.navigate('CadastroFarmacia'); }}>
                             <Text style={styles.titulo3}> Cadastrar </Text>
                         </Pressable>
 
