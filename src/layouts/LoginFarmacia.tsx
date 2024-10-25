@@ -20,7 +20,7 @@ const LoginFarmacia = (props: LoginFarmProps) => {
             auth()
                 .signInWithEmailAndPassword(email, senha)
                 .then(() => {
-                    props.navigation.navigate('TelaCadProdutos')
+                    props.navigation.navigate('CadastroProdutos')
                 })
                 .catch((erro) => tratarErros(String(erro)))
 

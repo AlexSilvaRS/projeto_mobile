@@ -193,7 +193,8 @@ const styles = StyleSheet.create({
         borderRadius: 4,
         borderColor: 'black',
         alignItems: 'center',
-        margin: 3
+        margin: 3,
+        backgroundColor: 'white',
     },
 });
 

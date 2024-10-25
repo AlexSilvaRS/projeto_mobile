@@ -13,6 +13,7 @@ import TelaConsProduto from "../layouts/TelaConsProduto";
 import TelaDeAlteracao from "../layouts/TelaDeAlteracao";
 import LoginFarmacia from "../layouts/LoginFarmacia";
 import CadastroFarmacia from "../layouts/CadastroFarmacia";
+import CadastroProdutos from "../layouts/CadastroProduto";
 
 
 type RootStackParamList = {
@@ -29,6 +30,7 @@ type RootStackParamList = {
     TelaDeAlteracao: undefined;
     CadastroFarmacia: undefined;
     LoginFarmacia: undefined;
+    CadastroProdutos: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -50,6 +52,8 @@ const HomeNavigator = () => {
             <Stack.Screen name="TelaDeAlteracao" component={TelaDeAlteracao} />
             <Stack.Screen name="CadastroFarmacia" component={CadastroFarmacia} />
             <Stack.Screen name="LoginFarmacia" component={LoginFarmacia} />
+            <Stack.Screen name="CadastroProdutos" component={CadastroProdutos} />
+
 
         </Stack.Navigator>
 
@@ -94,6 +98,9 @@ type CadFarmaciaProps = NativeStackScreenProps<RootStackParamList,
     type LoginFarmProps = NativeStackScreenProps<RootStackParamList,
     'LoginFarmacia'>;
 
+    type CadProdProps = NativeStackScreenProps<RootStackParamList,
+    'CadastroProdutos'>;
+
 
 
 
@@ -115,4 +122,5 @@ export type {
     AlteracaoProps,
     CadFarmaciaProps,
     LoginFarmProps,
+    CadProdProps,
 };

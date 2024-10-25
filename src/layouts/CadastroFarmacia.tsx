@@ -6,7 +6,7 @@ import { Alert, Pressable, StyleSheet, Text, TextInput, View } from "react-nativ
 const CadastroFarmacia = (props: CadFarmaciaProps) => {
     const [Email, setEmail] = useState('');
     const [Senha, setSenha] = useState('');
-    
+
     function Cadastrar() {
         auth()
             .createUserWithEmailAndPassword(Email, Senha)
@@ -47,8 +47,13 @@ const CadastroFarmacia = (props: CadFarmaciaProps) => {
             '\Senha: ' + Senha
         )
     }
+
+
     return (
+
         <View style={styles.container}>
+
+            <Text style={styles.titulo4}>Cadastro Usuário</Text>
 
             <View style={styles.container_Nome}>
                 <View style={{ flex: 1, alignItems: 'center', }}>
@@ -141,6 +146,13 @@ const styles = StyleSheet.create({
         width: 200,
         height: 200,
         resizeMode: "center"
-    }
+    },
+
+    titulo4: {
+        fontSize: 40,
+        fontWeight: 'bold',
+        color: 'black',
+        textAlign: 'center'
+    },
 });
 export default CadastroFarmacia;

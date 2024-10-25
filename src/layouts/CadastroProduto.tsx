@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, Pressable, Alert } from 'react-native';
-import firestore from "@react-native-firebase/firestore";
-import { ProdutoProps } from '../navigation/HomeNavigator';
+import { View, Text, TextInput, Button, Alert, StyleSheet, Pressable, ImageBackground } from 'react-native';
+import { CadProdProps } from '../navigation/HomeNavigator';
 import { Produtos } from '../components/type/produtos';
-import { styles } from '../styles/styles';
+import firestore from "@react-native-firebase/firestore"
 
 
-const TelaCadProdutos = (props: ProdutoProps) => {
+const CadastroProdutos = (props: CadProdProps) => {
     const [nome, setNome] = useState('');
-    const [codigo, setCodigo] = useState('');
     const [preco, setPreco] = useState('');
+    const [codigo, setCodigo] = useState('');
+
+
 
     function cadastrar() {
         if (verificarCampos()) {
@@ -36,7 +37,7 @@ const TelaCadProdutos = (props: ProdutoProps) => {
             return false;
         }
         if (!codigo) {
-            Alert.alert("Código de barras em branco", "Digite um código de barras");
+            Alert.alert("Código em branco", "Digite um código");
             return false;
         }
         if (!preco) {
@@ -50,10 +51,18 @@ const TelaCadProdutos = (props: ProdutoProps) => {
             return false;
         }
 
-        return true; // Adicionando o retorno para indicar que todos os campos estão válidos
+        return true;
     }
 
     return (
+
+
+        <ImageBackground
+            source={require('../images/fundo2.jpg')}
+            style={{ flex: 1 }}
+        >
+
+        
         <View>
             <Text>Nome</Text>
             <TextInput
@@ -61,7 +70,7 @@ const TelaCadProdutos = (props: ProdutoProps) => {
                 onChangeText={setNome}
             />
 
-            <Text>Código de Barras</Text>
+            <Text>Código</Text>
             <TextInput
                 maxLength={14}
                 style={styles.caixa_texto2}
@@ -75,14 +84,41 @@ const TelaCadProdutos = (props: ProdutoProps) => {
                 onChangeText={setPreco}
             />
 
-            <Pressable
-                style={styles.botao}
-                onPress={cadastrar}
-            >
-                <Text style={styles.botao}>Cadastrar</Text> 
-            </Pressable>
-        </View>
-    );
-}
+            <View style={{ alignItems: 'center', }}>
 
-export default TelaCadProdutos;
+                <Pressable
+                    style={styles.botao1}
+                    onPress={cadastrar}
+                >
+                    <Text style={styles.botao1}>Cadastrar</Text>
+                </Pressable>
+
+            </View>
+
+        </View>
+        </ImageBackground>
+    );
+};
+
+const styles = StyleSheet.create({
+
+    caixa_texto2: {
+        backgroundColor: 'white',
+        fontSize: 20,
+        borderWidth: 1,
+        borderRadius: 4,
+        borderColor: 'black',
+        alignItems: 'center',
+        margin: 3
+    },
+
+    botao1: {
+        backgroundColor: 'green',
+        padding: 5,
+        borderRadius: 5,
+        marginTop: 5,
+    },
+
+});
+
+export default CadastroProdutos;
