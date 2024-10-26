@@ -62,40 +62,47 @@ const CadastroProdutos = (props: CadProdProps) => {
             style={{ flex: 1 }}
         >
 
-        
-        <View>
-            <Text>Nome</Text>
-            <TextInput
-                style={styles.caixa_texto2}
-                onChangeText={setNome}
-            />
+<Text style={styles.titulo4}>Cadastro Produto</Text>
+            <View>
+                <Text>Nome</Text>
+                <TextInput
+                    style={styles.caixa_texto2}
+                    onChangeText={setNome}
+                />
 
-            <Text>Código</Text>
-            <TextInput
-                maxLength={14}
-                style={styles.caixa_texto2}
-                onChangeText={setCodigo}
-            />
+                <Text>Código</Text>
+                <TextInput
+                    maxLength={14}
+                    style={styles.caixa_texto2}
+                    onChangeText={setCodigo}
+                />
 
-            <Text>Preço</Text>
-            <TextInput
-                maxLength={7}
-                style={[styles.caixa_texto2, { width: "40%" }]}
-                onChangeText={setPreco}
-            />
+                <Text>Preço</Text>
+                <TextInput
+                    maxLength={7}
+                    style={[styles.caixa_texto2, { width: "40%" }]}
+                    onChangeText={setPreco}
+                />
 
-            <View style={{ alignItems: 'center', }}>
+                <View style={{ alignItems: 'center', }}>
 
-                <Pressable
-                    style={styles.botao1}
-                    onPress={cadastrar}
-                >
-                    <Text style={styles.botao1}>Cadastrar</Text>
-                </Pressable>
+                    <Pressable
+                        style={styles.botao1}
+                        onPress={cadastrar}
+                    >
+                        <Text style={styles.botao1}>Cadastrar</Text>
+                    </Pressable>
+
+                    <Pressable
+                        style={styles.button}
+                        onPress={() => props.navigation.navigate('cadastroVendas')}
+                    >
+                        <Text style={styles.buttonText}>Cadastrar Venda</Text>
+                    </Pressable>
+
+                </View>
 
             </View>
-
-        </View>
         </ImageBackground>
     );
 };
@@ -118,6 +125,25 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         marginTop: 5,
     },
+    titulo4:{
+        fontSize: 40,
+        color: 'black',
+        fontWeight: 'bold',
+        backgroundColor: 'white',
+        textAlign: 'center'
+    },
+    buttonText: {
+        backgroundColor: 'green',
+        padding: 5,
+        borderRadius: 5,
+        marginTop: 5,
+    },
+    button: {
+        backgroundColor: 'green',
+        padding: 5,
+        borderRadius: 5,
+        marginTop: 5,
+    }
 
 });
 

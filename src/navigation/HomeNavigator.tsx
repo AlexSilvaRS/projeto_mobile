@@ -14,6 +14,8 @@ import TelaDeAlteracao from "../layouts/TelaDeAlteracao";
 import LoginFarmacia from "../layouts/LoginFarmacia";
 import CadastroFarmacia from "../layouts/CadastroFarmacia";
 import CadastroProdutos from "../layouts/CadastroProduto";
+import cadastroVendas from "../layouts/CadastroVendas";
+import CadastroClientes from "../layouts/CadastroCliente";
 
 
 type RootStackParamList = {
@@ -31,6 +33,8 @@ type RootStackParamList = {
     CadastroFarmacia: undefined;
     LoginFarmacia: undefined;
     CadastroProdutos: undefined;
+    cadastroVendas: undefined;
+    CadastroCliente: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -53,6 +57,9 @@ const HomeNavigator = () => {
             <Stack.Screen name="CadastroFarmacia" component={CadastroFarmacia} />
             <Stack.Screen name="LoginFarmacia" component={LoginFarmacia} />
             <Stack.Screen name="CadastroProdutos" component={CadastroProdutos} />
+            <Stack.Screen name="cadastroVendas" component={cadastroVendas} />
+            <Stack.Screen name="CadastroCliente" component={CadastroClientes} />
+
 
 
         </Stack.Navigator>
@@ -101,6 +108,12 @@ type CadFarmaciaProps = NativeStackScreenProps<RootStackParamList,
     type CadProdProps = NativeStackScreenProps<RootStackParamList,
     'CadastroProdutos'>;
 
+    type VendasProps = NativeStackScreenProps<RootStackParamList,
+    'cadastroVendas'>;
+
+    type ClienteProps = NativeStackScreenProps<RootStackParamList,
+    'CadastroCliente'>;
+
 
 
 
@@ -123,4 +136,6 @@ export type {
     CadFarmaciaProps,
     LoginFarmProps,
     CadProdProps,
+    VendasProps,
+    ClienteProps,
 };
